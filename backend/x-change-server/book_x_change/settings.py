@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'book_x_change.apps.BookXChangeConfig',
 ]
 
 MIDDLEWARE = [
@@ -80,6 +81,9 @@ DATABASES = {
     }
 }
 
+FIXTURE_DIRS = [
+   '/book_x_change/fixtures/',
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
