@@ -39,4 +39,6 @@ class BookLoan(models.Model):
     date_returned = models.DateTimeField(blank=True, null=True)
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author')
+    list_display = ("title", "author")
+    list_filter = ["published_date"]
+    search_fields = ["title", "author"]
