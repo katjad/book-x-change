@@ -26,7 +26,7 @@ class Book(models.Model):
     status = models.CharField(
         max_length=50,
         choices=[(tag.name, tag.value) for tag in LoanStatus],
-        default=(LoanStatus.AV.name),
+        default=(LoanStatus.AV),
     )
     objects = models.Manager()
 
