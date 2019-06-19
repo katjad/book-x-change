@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class BookXChangeConfig(AppConfig):
-    name = 'book_x_change'
+class BooksConfig(AppConfig):
+    name = 'books'
     verbose_name = 'CodeHub Book Exchange'

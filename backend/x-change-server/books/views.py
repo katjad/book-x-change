@@ -18,7 +18,7 @@ class BookViewSet(viewsets.ModelViewSet):
                     'status': book.status,
                 }
             )
-        return Response(book.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(book.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
     @action(detail=True, methods=['post'])
     def request_item(self, request, pk=None):
@@ -30,7 +30,7 @@ class BookViewSet(viewsets.ModelViewSet):
                     'status': book.status,
                 }
             )
-        return Response(book.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(book.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
     @action(detail=True, methods=['post'])
     def return_item(self, request, pk=None):
@@ -42,4 +42,4 @@ class BookViewSet(viewsets.ModelViewSet):
                     'status': book.status,
                 }
             )
-        return Response(book.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(book.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)

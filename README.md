@@ -5,5 +5,5 @@
 - `cd book-x-change/backend/x-change-server/`
 - `python3 manage.py migrate`
 - `python3 manage.py createsuperuser`
-- `python3 manage.py loaddata book_x_change/fixtures/*`
+- `python3 manage.py loaddata books/fixtures/*`
 - `python3 manage.py runserver`

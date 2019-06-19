@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
                 ('date_requested', models.DateTimeField(blank=True, null=True)),
                 ('date_borrowed', models.DateTimeField(blank=True, null=True)),
                 ('date_returned', models.DateTimeField(blank=True, null=True)),
-                ('book', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='book_x_change.Book')),
+                ('book', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='books.Book')),
                 ('holder', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
