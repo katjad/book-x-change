@@ -34,20 +34,20 @@ class Book(models.Model):
     objects = models.Manager()
 
     @transition(field=status, source=[LoanStatus.AV], target=LoanStatus.OL)
-    def loan_item(self, book, borrower):
-        self.log_loan_event(book, borrower, LoanStatus.OL)
+    def loan_item(self, borrower):
+        self.log_loan_event(borrower, LoanStatus.OL)
 
     @transition(field=status, source=[LoanStatus.AV], target=LoanStatus.RQ)
-    def request_item(self, book, borrower):
-        self.log_loan_event(book, borrower, LoanStatus.RQ)
+    def request_item(self, borrower):
+        self.log_loan_event(borrower, LoanStatus.RQ)
 
     @transition(field=status, source=[LoanStatus.OL], target=LoanStatus.AV)
-    def return_item(self, book, borrower):
-        self.log_loan_event(book, borrower, LoanStatus.AV)
+    def return_item(self):
+        self.log_loan_event(self.holder, LoanStatus.AV)
 
-    def log_loan_event(self, book, borrower, status):
+    def log_loan_event(self, borrower, status):
         BookLoanEvent.objects.create(
-            book=book,
+            book=self,
             holder=borrower,
             date=timezone.now(),
             status=status,

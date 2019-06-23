@@ -35,7 +35,7 @@ class BookViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=['post'])
     def return_item(self, request, pk=None):
         book = self.get_object()
-        book.return_item(book, request.data['holder'])
+        book.return_item()
         if book.save():
             return Response(
                 {
