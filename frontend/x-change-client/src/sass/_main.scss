@@ -1,0 +1,26 @@
+
+/*** Scaffolding ***/
+
+.push-down {
+  margin-bottom: 20px;
+}
+
+
+/*** Flex ***/
+
+.flex-container {
+  display: flex;
+}
+.flex-checkbox {
+  flex: 0 1 50px;
+}
+
+
+/*** Alerts ***/
+
+.alert-error {
+  border: 2px solid pink;
+  background-color: #fee;
+}
+
+
