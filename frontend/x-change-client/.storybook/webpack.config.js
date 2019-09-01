@@ -15,7 +15,12 @@ module.exports = ({config}) => {
         },
         { loader: require.resolve('react-docgen-typescript-loader') }
       ]
+  },
+  {
+    test: /\.scss$/,
+    include: path.resolve(__dirname, '../src/index.scss'),
+    use: ['style-loader', 'css-loader', 'sass-loader']
   });
-  config.resolve.extensions.push('.ts', '.tsx');
+  config.resolve.extensions.push('.ts', '.tsx', '.css', '.scss');
   return config;
 };
