@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Formik, FormikProps, Field, ErrorMessage } from "formik";
+import { Formik, FieldProps, FormikProps, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import { Form, Container, Header, Button } from 'semantic-ui-react';
 
@@ -26,11 +26,8 @@ const initialValues: IFormValues = {
   at_framework: false
 }
 
-interface Values {
-  [key: string]: any
-}
 
-const BxForm: React.SFC = (props) => {
+const BxForm = () => {
   return (
     <Container>
       <Container className="push-down" text>
@@ -48,7 +45,7 @@ const BxForm: React.SFC = (props) => {
             title: Yup.string().required("Please enter a title.")
         })}
       >
-        {( props: FormikProps<Values> ) => (
+        {( props: FormikProps<unknown> ) => (
             <Form onSubmit={props.handleSubmit}>
               <Container className="push-down" text>
                 <Field
@@ -75,7 +72,7 @@ const BxForm: React.SFC = (props) => {
               <Container className="push-down" text>
                 <Field
                   name="at_framework"
-                  render={( props: Values ) => {
+                  render={( props: FieldProps<unknown> )  => {
                     return (
                       <div className="flex-container">
                         <input className="flex-checkbox" type="checkbox" {...props.field} />
